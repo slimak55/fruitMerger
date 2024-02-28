@@ -107,122 +107,11 @@
         "userAdded": false
       },
       {
-        "alwaysLoaded": false,
-        "file": "Orange_64.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Orange_64.png",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "banana.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "banana.png",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "apple.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "apple.png",
-        "smoothed": false,
-        "userAdded": false
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "cherry.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "cherry.png",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "melon.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "melon.png",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
         "file": "Oswald-VariableFont_wght.ttf",
         "kind": "font",
         "metadata": "",
         "name": "Oswald-VariableFont_wght.ttf",
         "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/NewButton Idle.png",
-        "kind": "image",
-        "metadata": "{\"extension\":\".png\",\"pskl\":{},\"localFilePath\":\"assets/NewButton Idle.png\"}",
-        "name": "NewButton Idle",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/NewButton Hovered.png",
-        "kind": "image",
-        "metadata": "{\"extension\":\".png\",\"pskl\":{},\"localFilePath\":\"assets/NewButton Hovered.png\"}",
-        "name": "NewButton Hovered",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/NewButton Pressed.png",
-        "kind": "image",
-        "metadata": "{\"extension\":\".png\",\"pskl\":{},\"localFilePath\":\"assets/NewButton Pressed.png\"}",
-        "name": "NewButton Pressed",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/Black Decorated Button_Hovered.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Black Decorated Button_Hovered.png",
-        "smoothed": false,
-        "userAdded": false,
-        "origin": {
-          "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/8a9f8afaf0442f49cd7d5318d31ac6117137ec91d9086e9bdd59b052a4fa71f0_Black Decorated Button_Hovered.png",
-          "name": "Black Decorated Button_Hovered.png"
-        }
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/Black Decorated Button_Idle.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Black Decorated Button_Idle.png",
-        "smoothed": false,
-        "userAdded": false,
-        "origin": {
-          "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/6652cc81d33cb5485e0bf19ed2a92aac70b5c9fb45837762d094c8dbecc30d4d_Black Decorated Button_Idle.png",
-          "name": "Black Decorated Button_Idle.png"
-        }
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/Black Decorated Button_Pressed.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Black Decorated Button_Pressed.png",
-        "smoothed": false,
-        "userAdded": false,
-        "origin": {
-          "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/61997299d1d329fff69772b1111ba7c07b6c0a96a9a17090d2bf2cc31ff08e00_Black Decorated Button_Pressed.png",
-          "name": "Black Decorated Button_Pressed.png"
-        }
       },
       {
         "file": "assets/ArchitectsDaughter.ttf",
@@ -234,42 +123,6 @@
           "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/ab812c7d15ad3474b6e55761235713b68f34374f3f064d1b8685ed46720df2f8_ArchitectsDaughter.ttf",
           "name": "ArchitectsDaughter.ttf"
         }
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/NewButton Idle2.png",
-        "kind": "image",
-        "metadata": "{\"extension\":\".png\",\"pskl\":{},\"localFilePath\":\"assets/NewButton Idle2.png\"}",
-        "name": "NewButton Idle2",
-        "smoothed": false,
-        "userAdded": false
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/NewButton Idle2.png",
-        "kind": "image",
-        "metadata": "{\"localFilePath\":\"assets/NewButton Idle2.png\",\"extension\":\".png\",\"pskl\":{}}",
-        "name": "assets\\NewButton Idle2.png",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/NewButton_Hover.png",
-        "kind": "image",
-        "metadata": "{\"localFilePath\":\"assets/NewButton_Hover.png\",\"extension\":\".png\",\"pskl\":{}}",
-        "name": "assets\\NewButton_Hover.png",
-        "smoothed": false,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/NewButton_Press.png",
-        "kind": "image",
-        "metadata": "{\"localFilePath\":\"assets/NewButton_Press.png\",\"extension\":\".png\",\"pskl\":{}}",
-        "name": "assets\\NewButton_Press.png",
-        "smoothed": false,
-        "userAdded": true
       },
       {
         "alwaysLoaded": false,
@@ -378,45 +231,6 @@
         "name": "Banana_HD.png",
         "smoothed": false,
         "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/Transparent Button With White Yellow Border_Hovered.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Transparent Button With White Yellow Border_Hovered.png",
-        "smoothed": false,
-        "userAdded": false,
-        "origin": {
-          "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/09c5d56e61a6a8b031a30ff89ae4229243317908385b5701a46e458c2fd6906c_Transparent Button With White Yellow Border_Hovered.png",
-          "name": "Transparent Button With White Yellow Border_Hovered.png"
-        }
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/Transparent Button With White Yellow Border_Idle.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Transparent Button With White Yellow Border_Idle.png",
-        "smoothed": false,
-        "userAdded": false,
-        "origin": {
-          "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/7311d88d62c25c9a5e7ed4f2031f4d58fabe564e093b203e62e467a1a995ed32_Transparent Button With White Yellow Border_Idle.png",
-          "name": "Transparent Button With White Yellow Border_Idle.png"
-        }
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/Transparent Button With White Yellow Border_Pressed.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Transparent Button With White Yellow Border_Pressed.png",
-        "smoothed": false,
-        "userAdded": false,
-        "origin": {
-          "identifier": "https://asset-resources.gdevelop.io/public-resources/Menu buttons/e00d068010472f362dc46547bd727f20d85163a88cd2414d7f4fb9df63db2917_Transparent Button With White Yellow Border_Pressed.png",
-          "name": "Transparent Button With White Yellow Border_Pressed.png"
-        }
       },
       {
         "file": "assets/Charm-Regular.ttf",
