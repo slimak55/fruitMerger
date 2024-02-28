@@ -25,3 +25,4 @@ The game will be publish on Itch.io, and you can see all of the assets here on G
 Also, all of the assets are hand made, or the license is in the repo. **You can use all of my original assets if you want but it is not allowed to build or redistribute the game itself in any way other than downloading it from offical source.**
 
 ## License
+Fruit Merger © 2024 by Michal Cloud is licensed under CC BY-ND 4.0 
