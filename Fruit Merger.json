@@ -12,17 +12,17 @@
     "antialisingEnabledOnMobile": false,
     "folderProject": false,
     "orientation": "landscape",
-    "packageName": "com.example.gamename",
+    "packageName": "fruit.merger",
     "pixelsRounding": true,
     "projectUuid": "c84fbe7a-9ea8-4d91-82f1-de549c1710c0",
     "scaleMode": "nearest",
     "sizeOnStartupMode": "adaptWidth",
     "templateSlug": "",
     "useExternalSourceFiles": false,
-    "version": "1.0.0",
+    "version": "0.4.0",
     "name": "Fruit Merger",
     "description": "Merge Score -> Gain Score -> Upgrade",
-    "author": "",
+    "author": "Michal Cloud",
     "windowWidth": 1920,
     "windowHeight": 1080,
     "latestCompilationDirectory": "",
@@ -458,6 +458,12 @@
       "name": "LoadSave",
       "type": "number",
       "value": 0
+    },
+    {
+      "folded": true,
+      "name": "bSpawnTime",
+      "type": "number",
+      "value": 25
     }
   ],
   "layouts": [
@@ -481,7 +487,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.7370816317994111,
+        "zoomFactor": 0.9934433498259687,
         "windowMask": false
       },
       "objectsGroups": [
@@ -543,6 +549,36 @@
             },
             {
               "name": "Shop_Panel"
+            },
+            {
+              "name": "bSpawnTime"
+            },
+            {
+              "name": "bSpawnTimer"
+            },
+            {
+              "name": "bSpawnTimeLevel"
+            },
+            {
+              "name": "bTimeSpawnCost"
+            },
+            {
+              "name": "Banana_Spawn_Time"
+            },
+            {
+              "name": "bValue"
+            },
+            {
+              "name": "Banana_Value"
+            },
+            {
+              "name": "bValueCost"
+            },
+            {
+              "name": "bScoreValue"
+            },
+            {
+              "name": "bValueLevel"
             }
           ]
         },
@@ -554,6 +590,12 @@
             },
             {
               "name": "oSpwanScoreMod"
+            },
+            {
+              "name": "bSpawnTime"
+            },
+            {
+              "name": "bValue"
             }
           ]
         },
@@ -610,6 +652,42 @@
         },
         {
           "name": "loadOrSpawnTimeLevel",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadBaSpawnTime",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadBaSpawnTimeLevel",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadBaSpawnTimeCost",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadBaValueCost",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadBaValueLevel",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadBaValue",
           "type": "number",
           "value": 0
         }
@@ -702,7 +780,7 @@
           "persistentUuid": "302cf206-1752-4b13-8326-c4c979562dcf",
           "width": 212,
           "x": 153,
-          "y": 286,
+          "y": 290,
           "zOrder": 29,
           "numberProperties": [],
           "stringProperties": [],
@@ -717,7 +795,7 @@
           "name": "oSpawnCost",
           "persistentUuid": "9f2cc9fe-ff53-4bff-bf2e-f4d9c3c584d8",
           "width": 88,
-          "x": 160,
+          "x": 170,
           "y": 332,
           "zOrder": 30,
           "numberProperties": [],
@@ -733,7 +811,7 @@
           "name": "oSpawnTimeLevel",
           "persistentUuid": "f240437a-6a92-4dac-9837-4ccd90e9f126",
           "width": 83,
-          "x": 160,
+          "x": 170,
           "y": 369,
           "zOrder": 31,
           "numberProperties": [],
@@ -749,7 +827,7 @@
           "name": "oSpawnTimer",
           "persistentUuid": "b85351c1-4c9f-457e-b1c6-b9996c31c997",
           "width": 156,
-          "x": 160,
+          "x": 170,
           "y": 404,
           "zOrder": 32,
           "numberProperties": [],
@@ -1115,11 +1193,163 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "Banana_Spawn_Time",
+          "persistentUuid": "4ea4f10c-a62f-4c14-9e62-1f08fb18abc5",
+          "width": 0,
+          "x": 1024,
+          "y": 290,
+          "zOrder": 48,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 32,
+          "height": 32,
+          "layer": "UI Shop",
+          "name": "bSpawnTime",
+          "persistentUuid": "82b03fdb-a857-4c43-b391-0d5f8dda3a5d",
+          "width": 96,
+          "x": 1216,
+          "y": 288,
+          "zOrder": 49,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "bTimeSpawnCost",
+          "persistentUuid": "19f4cac8-5da7-4302-8890-7efc75e3bfae",
+          "width": 0,
+          "x": 1037,
+          "y": 332,
+          "zOrder": 50,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "bSpawnTimeLevel",
+          "persistentUuid": "34c5ac19-07fb-40ad-b145-67716a9d6679",
+          "width": 0,
+          "x": 1037,
+          "y": 367,
+          "zOrder": 51,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "bSpawnTimer",
+          "persistentUuid": "5e041f9c-73c0-4fd0-830a-e7d9cf7d74ab",
+          "width": 0,
+          "x": 1037,
+          "y": 401,
+          "zOrder": 52,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "Banana_Value",
+          "persistentUuid": "ef101677-09a2-411b-9998-0971606fb07a",
+          "width": 0,
+          "x": 1452,
+          "y": 290,
+          "zOrder": 53,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "bValueCost",
+          "persistentUuid": "fb700147-0d51-459b-b98c-8e0b43540b6f",
+          "width": 0,
+          "x": 1463,
+          "y": 332,
+          "zOrder": 54,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "bValueLevel",
+          "persistentUuid": "d6a24352-c415-4f3e-b0ed-968cf7d9231e",
+          "width": 0,
+          "x": 1463,
+          "y": 367,
+          "zOrder": 55,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "bScoreValue",
+          "persistentUuid": "7ce3279b-6ef8-45ff-9cfd-064d2b0000d5",
+          "width": 0,
+          "x": 1463,
+          "y": 401,
+          "zOrder": 56,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 32,
+          "height": 32,
+          "layer": "UI Shop",
+          "name": "bValue",
+          "persistentUuid": "089fdf47-616d-4602-b882-3c0582c962c7",
+          "width": 96,
+          "x": 1659,
+          "y": 288,
+          "zOrder": 57,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "Orange",
           "type": "Sprite",
@@ -1161,19 +1391,55 @@
                         [
                           {
                             "x": 0,
-                            "y": 1
+                            "y": 605
+                          },
+                          {
+                            "x": 5.5,
+                            "y": 391.5
+                          },
+                          {
+                            "x": 78,
+                            "y": 84
+                          },
+                          {
+                            "x": 162,
+                            "y": 0
+                          },
+                          {
+                            "x": 239,
+                            "y": 0
+                          },
+                          {
+                            "x": 478,
+                            "y": 124
                           },
                           {
                             "x": 619,
-                            "y": 1
+                            "y": 418.5
                           },
                           {
-                            "x": 619,
+                            "x": 617.5,
+                            "y": 657
+                          },
+                          {
+                            "x": 539.5,
+                            "y": 765.5
+                          },
+                          {
+                            "x": 408,
+                            "y": 810
+                          },
+                          {
+                            "x": 325,
                             "y": 816
                           },
                           {
-                            "x": 0,
-                            "y": 816
+                            "x": 194,
+                            "y": 806.5
+                          },
+                          {
+                            "x": 68,
+                            "y": 760.5
                           }
                         ]
                       ]
@@ -1185,7 +1451,7 @@
           ]
         },
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "Banana",
           "type": "Sprite",
@@ -1226,19 +1492,35 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 1,
-                            "y": 1
+                            "x": 0,
+                            "y": 763.5
                           },
                           {
-                            "x": 636,
-                            "y": 1
+                            "x": 537.5,
+                            "y": 0
                           },
                           {
-                            "x": 636,
-                            "y": 837
+                            "x": 637,
+                            "y": 0
                           },
                           {
-                            "x": 1,
+                            "x": 637,
+                            "y": 414.5
+                          },
+                          {
+                            "x": 626,
+                            "y": 520.5
+                          },
+                          {
+                            "x": 500.5,
+                            "y": 706.5
+                          },
+                          {
+                            "x": 226.5,
+                            "y": 815
+                          },
+                          {
+                            "x": 0,
                             "y": 837
                           }
                         ]
@@ -1251,7 +1533,7 @@
           ]
         },
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "Apple",
           "type": "Sprite",
@@ -1293,19 +1575,47 @@
                         [
                           {
                             "x": 0,
-                            "y": 0
-                          },
-                          {
-                            "x": 1100,
-                            "y": 0
-                          },
-                          {
-                            "x": 1100,
-                            "y": 1409
+                            "y": 957.5
                           },
                           {
                             "x": 0,
+                            "y": 678
+                          },
+                          {
+                            "x": 94,
+                            "y": 0
+                          },
+                          {
+                            "x": 465.5,
+                            "y": 2
+                          },
+                          {
+                            "x": 858.5,
+                            "y": 94
+                          },
+                          {
+                            "x": 1072.5,
+                            "y": 557.5
+                          },
+                          {
+                            "x": 1100,
+                            "y": 849.5
+                          },
+                          {
+                            "x": 1076,
+                            "y": 1044.5
+                          },
+                          {
+                            "x": 938,
+                            "y": 1313.5
+                          },
+                          {
+                            "x": 442.5,
                             "y": 1409
+                          },
+                          {
+                            "x": 94,
+                            "y": 1264
                           }
                         ]
                       ]
@@ -1317,7 +1627,7 @@
           ]
         },
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "Cherry",
           "type": "Sprite",
@@ -1359,19 +1669,43 @@
                         [
                           {
                             "x": 0,
+                            "y": 568
+                          },
+                          {
+                            "x": 136,
+                            "y": 92
+                          },
+                          {
+                            "x": 283,
                             "y": 0
                           },
                           {
-                            "x": 559,
-                            "y": 0
+                            "x": 411,
+                            "y": 1
+                          },
+                          {
+                            "x": 532,
+                            "y": 36
                           },
                           {
                             "x": 559,
+                            "y": 499
+                          },
+                          {
+                            "x": 546,
+                            "y": 609
+                          },
+                          {
+                            "x": 204,
+                            "y": 729
+                          },
+                          {
+                            "x": 93,
                             "y": 732
                           },
                           {
-                            "x": 0,
-                            "y": 732
+                            "x": 21,
+                            "y": 716
                           }
                         ]
                       ]
@@ -1383,7 +1717,7 @@
           ]
         },
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "Melon",
           "type": "Sprite",
@@ -1424,20 +1758,56 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 0,
-                            "y": 0
-                          },
-                          {
-                            "x": 619,
-                            "y": 0
-                          },
-                          {
-                            "x": 619,
-                            "y": 793
+                            "x": 5,
+                            "y": 583.5
                           },
                           {
                             "x": 0,
+                            "y": 458.5
+                          },
+                          {
+                            "x": 47,
+                            "y": 0
+                          },
+                          {
+                            "x": 290,
+                            "y": 0
+                          },
+                          {
+                            "x": 458,
+                            "y": 107.5
+                          },
+                          {
+                            "x": 577,
+                            "y": 303.5
+                          },
+                          {
+                            "x": 619,
+                            "y": 407.5
+                          },
+                          {
+                            "x": 619,
+                            "y": 523.5
+                          },
+                          {
+                            "x": 583,
+                            "y": 730.5
+                          },
+                          {
+                            "x": 407,
+                            "y": 787.5
+                          },
+                          {
+                            "x": 251,
                             "y": 793
+                          },
+                          {
+                            "x": 177,
+                            "y": 782.5
+                          },
+                          {
+                            "x": 88,
+                            "y": 723.5
                           }
                         ]
                       ]
@@ -2364,13 +2734,13 @@
           ],
           "behaviors": [
             {
+              "name": "Anchor",
+              "type": "AnchorBehavior::AnchorBehavior",
               "bottomEdgeAnchor": 3,
               "leftEdgeAnchor": 3,
-              "name": "Anchor",
               "relativeToOriginalWindowSize": true,
               "rightEdgeAnchor": 3,
               "topEdgeAnchor": 3,
-              "type": "AnchorBehavior::AnchorBehavior",
               "useLegacyBottomAndRightAnchors": false
             }
           ],
@@ -2440,6 +2810,512 @@
           "variables": [],
           "effects": [],
           "behaviors": []
+        },
+        {
+          "assetStoreId": "",
+          "name": "bSpawnTime",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [
+            {
+              "folded": true,
+              "name": "Level",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
+              "name": "Cost",
+              "type": "number",
+              "value": 500
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "content": {},
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": -3,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_hover.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Idle": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_idle.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Buy",
+              "font": "Oswald-VariableFont_wght.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "Buy",
+                "font": "Oswald-VariableFont_wght.ttf",
+                "textAlignment": "center",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_press.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            }
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "bSpawnTimeLevel",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Level: 0",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Level: 0",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "bTimeSpawnCost",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Cost: 500",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Cost: 500",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "bSpawnTimer",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Spawn Time: None",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Spawn Time: None",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": true,
+          "italic": false,
+          "name": "Banana_Spawn_Time",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Banana Spawn Time",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 25,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": true,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Banana Spawn Time",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 25,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": true,
+          "italic": false,
+          "name": "Banana_Value",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Banana Score Modifier",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 25,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": true,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Banana Score Modifier",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 25,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "bValue",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [
+            {
+              "folded": true,
+              "name": "Level",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
+              "name": "Cost",
+              "type": "number",
+              "value": 150
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "content": {},
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": -3,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_hover.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Idle": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_idle.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Buy",
+              "font": "Oswald-VariableFont_wght.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "Buy",
+                "font": "Oswald-VariableFont_wght.ttf",
+                "textAlignment": "center",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_press.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            }
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "bValueCost",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Cost: 150",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Cost: 150",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "bScoreValue",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Banana Score: 5",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Banana Score: 5",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "bValueLevel",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Level: 0",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Level: 0",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -2449,7 +3325,47 @@
             "folderName": "Store",
             "children": [
               {
+                "folderName": "bValue",
+                "children": [
+                  {
+                    "objectName": "bValueLevel"
+                  },
+                  {
+                    "objectName": "bScoreValue"
+                  },
+                  {
+                    "objectName": "bValueCost"
+                  },
+                  {
+                    "objectName": "bValue"
+                  },
+                  {
+                    "objectName": "Banana_Value"
+                  }
+                ]
+              },
+              {
                 "objectName": "Shop_Panel"
+              },
+              {
+                "folderName": "bSpawnTime",
+                "children": [
+                  {
+                    "objectName": "Banana_Spawn_Time"
+                  },
+                  {
+                    "objectName": "bSpawnTime"
+                  },
+                  {
+                    "objectName": "bSpawnTimer"
+                  },
+                  {
+                    "objectName": "bTimeSpawnCost"
+                  },
+                  {
+                    "objectName": "bSpawnTimeLevel"
+                  }
+                ]
               },
               {
                 "folderName": "oScore",
@@ -2797,6 +3713,66 @@
                         "oSpawnTime",
                         "=",
                         "5"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Banana Upgrades"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "bSpawnTime",
+                        "Cost",
+                        "=",
+                        "500"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "bValue",
+                        "Cost",
+                        "=",
+                        "150"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "bScore",
+                        "=",
+                        "5"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "bSpawnTime",
+                        "=",
+                        "25"
                       ]
                     }
                   ]
@@ -3215,6 +4191,310 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Load Bananas"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaSpawnTime\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaSpawnTime\"",
+                    "GlobalVariable(bSpawnTime)",
+                    "loadBaSpawnTime"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "=",
+                    "Variable(loadBaSpawnTime)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bSpawnTimer",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(GlobalVariable(bSpawnTime))"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaSpawnTimeLevel\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaSpawnTimeLevel\"",
+                    "bSpawnTime.Variable(Level)",
+                    "loadBaSpawnTimeLevel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Level",
+                    "=",
+                    "Variable(loadBaSpawnTimeLevel)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bSpawnTimeLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(bSpawnTime.Variable(Level))"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaSpawnTimeCost\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaSpawnTimeCost\"",
+                    "bSpawnTime.Variable(Cost)",
+                    "loadBaSpawnTimeCost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Cost",
+                    "=",
+                    "Variable(loadBaSpawnTimeCost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bTimeSpawnCost",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(bSpawnTime.Variable(Cost))"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaValueCost\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaValueCost\"",
+                    "bValue.Variable(Cost)",
+                    "loadBaValueCost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bValue",
+                    "Cost",
+                    "=",
+                    "Variable(loadBaValueCost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bValueCost",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(bValue.Cost)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaValueLevel\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaValueLevel\"",
+                    "bValue.Variable(Level)",
+                    "loadBaValueLevel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bValue",
+                    "Level",
+                    "=",
+                    "Variable(loadBaValueLevel)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bValueLevel",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(bValue.Level)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaValue\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"BananaValue\"",
+                    "GlobalVariable(bScore)",
+                    "loadBaValue"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "bScore",
+                    "=",
+                    "Variable(loadBaValue)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bScoreValue",
+                    "Text",
+                    "=",
+                    "\"Banana Score: \" + ToString(bScore)"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -3276,6 +4556,68 @@
               "parameters": [
                 "Orange",
                 "\"oSpawnTimer\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Banana Spawner"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CompareTimer"
+              },
+              "parameters": [
+                "",
+                "\"bSpawnTimer\"",
+                ">=",
+                "GlobalVariable(bSpawnTime)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Banana",
+                "RandomInRange(100,1500)",
+                "RandomInRange(100,800)",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ScalableCapability::ScalableBehavior::SetValue"
+              },
+              "parameters": [
+                "Banana",
+                "Scale",
+                "=",
+                "0.1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetTimer"
+              },
+              "parameters": [
+                "Orange",
+                "\"bSpawnTimer\""
               ]
             }
           ]
@@ -4989,6 +6331,603 @@
             "textG": 0,
             "textR": 0
           },
+          "comment": "Banana Spawn Time"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    ">=",
+                    "bSpawnTime.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Level",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "-",
+                    "bSpawnTime.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "=",
+                    "floorTo(GlobalVariable(Score),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Score",
+                    "Text",
+                    "=",
+                    "\"SCORE: \" + ToString(GlobalVariable(Score))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Level",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bSpawnTimeLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(bSpawnTime.Variable(Level))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Cost",
+                    "*",
+                    "1.75"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Cost",
+                    "=",
+                    "floorTo(bSpawnTime.Cost,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bTimeSpawnCost",
+                    "Text",
+                    "=",
+                    "\"Cost: \" + ToString(bSpawnTime.Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bSpawnTimer",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(GlobalVariable(bSpawnTime))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetTimer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"bSpawnTimer\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    ">=",
+                    "bSpawnTime.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Level",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "-",
+                    "bSpawnTime.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "=",
+                    "floorTo(GlobalVariable(Score),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Score",
+                    "Text",
+                    "=",
+                    "\"SCORE: \" + ToString(GlobalVariable(Score))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Level",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bSpawnTimeLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(bSpawnTime.Variable(Level))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Cost",
+                    "*",
+                    "1.75"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "Cost",
+                    "=",
+                    "floorTo(bSpawnTime.Cost,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bTimeSpawnCost",
+                    "Text",
+                    "=",
+                    "\"Cost: \" + ToString(bSpawnTime.Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "*",
+                    "0.97"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "bSpawnTime",
+                    "=",
+                    "floorTo(GlobalVariable(bSpawnTime),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bSpawnTimer",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(GlobalVariable(bSpawnTime))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetTimer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"bSpawnTimer\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Banana Score"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "bValue",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    ">=",
+                    "bValue.Variable(Cost)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "-",
+                    "bValue.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "=",
+                    "floorTo(GlobalVariable(Score),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Score",
+                    "Text",
+                    "=",
+                    "\"SCORE: \" + ToString(GlobalVariable(Score))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bValue",
+                    "Level",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bValueLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(bValue.Variable(Level))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bValue",
+                    "Cost",
+                    "+",
+                    "150"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "bValue",
+                    "Cost",
+                    "=",
+                    "floorTo(bValue.Cost,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bValueCost",
+                    "Text",
+                    "=",
+                    "\"Cost: \" + ToString(bValue.Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "bScore",
+                    "*",
+                    "1.05"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "bScore",
+                    "=",
+                    "floorTo(bScore,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "bScoreValue",
+                    "Text",
+                    "=",
+                    "\"Banana Score: \" + ToString(bScore)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Banana Max Level"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "bSpawnTime",
+                        "Level",
+                        "=",
+                        "50"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "bSpawnTime",
+                        "oSpwanTimeBuy"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "bTimeSpawnCost",
+                        "Text",
+                        "=",
+                        "\"Cost: NONE\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "bSpawnTimeLevel",
+                        "Text",
+                        "=",
+                        "\"Level: MAX\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "bValue",
+                        "Level",
+                        "=",
+                        "80"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "bValue",
+                        "oSpwanTimeBuy"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "bValueLevel",
+                        "Text",
+                        "=",
+                        "\"Level: MAX\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                      },
+                      "parameters": [
+                        "bValueCost",
+                        "Text",
+                        "=",
+                        "\"Cost: NONE\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
           "comment": "Button Sound"
         },
         {
@@ -5490,6 +7429,102 @@
                         "\"SaveFile\"",
                         "\"OrangeSpawnTimeCost\"",
                         "oSpwanTimeBuy.Variable(Cost)"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Banana Spawner Save"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"BananaSpawnTime\"",
+                        "GlobalVariable(bSpawnTime)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"BananaSpawnTimeLevel\"",
+                        "bSpawnTime.Variable(Level)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"BananaSpawnTimeCost\"",
+                        "bSpawnTime.Variable(Cost)"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Banana Value"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"BananaValue\"",
+                        "GlobalVariable(bScore)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"BananaValueLevel\"",
+                        "bValue.Variable(Level)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"BananaValueCost\"",
+                        "bValue.Variable(Cost)"
                       ]
                     }
                   ]
@@ -8363,7 +10398,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.2890516203134916,
+        "zoomFactor": 0.2796226521839374,
         "windowMask": false
       },
       "objectsGroups": [],
