@@ -19,7 +19,7 @@
     "sizeOnStartupMode": "adaptWidth",
     "templateSlug": "",
     "useExternalSourceFiles": false,
-    "version": "0.4.0",
+    "version": "0.5.0",
     "name": "Fruit Merger",
     "description": "Merge Score -> Gain Score -> Upgrade",
     "author": "Michal Cloud",
@@ -355,6 +355,60 @@
         "name": "cloud.png",
         "smoothed": false,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Coursur.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Coursur.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Vrstva2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Vrstva2.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "done.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "done.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "done_hover.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "done_hover.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "leader.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "leader.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "leader_hover.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "leader_hover.png",
+        "smoothed": false,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -375,11 +429,122 @@
       "variables": [],
       "effects": [],
       "behaviors": []
+    },
+    {
+      "adaptCollisionMaskAutomatically": true,
+      "assetStoreId": "",
+      "name": "Cursor",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "effects": [],
+      "behaviors": [],
+      "animations": [
+        {
+          "name": "Idle",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "Coursur.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 90,
+                    "y": 41.5
+                  },
+                  "centerPoint": {
+                    "automatic": false,
+                    "name": "centre",
+                    "x": 323,
+                    "y": 284.5
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 521,
+                        "y": 0
+                      },
+                      {
+                        "x": 521,
+                        "y": 443
+                      },
+                      {
+                        "x": 0,
+                        "y": 443
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Drag",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "Vrstva2.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 323.5,
+                    "y": 284
+                  },
+                  "centerPoint": {
+                    "automatic": false,
+                    "name": "centre",
+                    "x": 323,
+                    "y": 284.5
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "x": 521,
+                        "y": 0
+                      },
+                      {
+                        "x": 521,
+                        "y": 443
+                      },
+                      {
+                        "x": 0,
+                        "y": 443
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "objectsFolderStructure": {
     "folderName": "__ROOT",
     "children": [
+      {
+        "objectName": "Cursor"
+      },
       {
         "objectName": "NewPanelSprite"
       }
@@ -392,6 +557,17 @@
       "name": "Score",
       "type": "number",
       "value": 0
+    },
+    {
+      "folded": true,
+      "name": "highScore",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "name": "playerName",
+      "type": "string",
+      "value": ""
     },
     {
       "folded": true,
@@ -425,9 +601,21 @@
     },
     {
       "folded": true,
+      "name": "bSpawnTime",
+      "type": "number",
+      "value": 25
+    },
+    {
+      "folded": true,
       "name": "aScore",
       "type": "number",
       "value": 10
+    },
+    {
+      "folded": true,
+      "name": "aSpawnTime",
+      "type": "number",
+      "value": 60
     },
     {
       "folded": true,
@@ -458,12 +646,6 @@
       "name": "LoadSave",
       "type": "number",
       "value": 0
-    },
-    {
-      "folded": true,
-      "name": "bSpawnTime",
-      "type": "number",
-      "value": 25
     }
   ],
   "layouts": [
@@ -487,7 +669,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.9934433498259687,
+        "zoomFactor": 0.9934433498259694,
         "windowMask": false
       },
       "objectsGroups": [
@@ -579,6 +761,36 @@
             },
             {
               "name": "bValueLevel"
+            },
+            {
+              "name": "aScoreValue"
+            },
+            {
+              "name": "aValueLevel"
+            },
+            {
+              "name": "aValueCost"
+            },
+            {
+              "name": "aValue"
+            },
+            {
+              "name": "Apple_Value"
+            },
+            {
+              "name": "Apple_Spawn_Time"
+            },
+            {
+              "name": "aSpawnTime"
+            },
+            {
+              "name": "aSpawnTimer"
+            },
+            {
+              "name": "aSpawnTimeCost"
+            },
+            {
+              "name": "aSpawnTimeLevel"
             }
           ]
         },
@@ -596,6 +808,12 @@
             },
             {
               "name": "bValue"
+            },
+            {
+              "name": "aValue"
+            },
+            {
+              "name": "aSpawnTime"
             }
           ]
         },
@@ -688,6 +906,42 @@
         {
           "folded": true,
           "name": "loadBaValue",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadApValue",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadApValueCost",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadApValueLevel",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadApSpawnTimeLevel",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadApSpawnTime",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadApSpawnTimeCost",
           "type": "number",
           "value": 0
         }
@@ -1342,6 +1596,237 @@
           "x": 1659,
           "y": 288,
           "zOrder": 57,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 192,
+          "layer": "UI Shop",
+          "name": "Shop_Panel",
+          "persistentUuid": "b3e955a5-fbd4-4929-9e4a-5c32cd4aa08b",
+          "width": 352,
+          "x": 133,
+          "y": 490,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 192,
+          "layer": "UI Shop",
+          "name": "Shop_Panel",
+          "persistentUuid": "6d88c894-0a8a-4776-9272-627bc6aaa0f9",
+          "width": 352,
+          "x": 566,
+          "y": 490,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 192,
+          "layer": "UI Shop",
+          "name": "Shop_Panel",
+          "persistentUuid": "a47b4a57-40d0-4cf2-a093-4f7b5c5750ca",
+          "width": 352,
+          "x": 991,
+          "y": 490,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 192,
+          "layer": "UI Shop",
+          "name": "Shop_Panel",
+          "persistentUuid": "9ae60821-64ec-47b7-a101-42097f5c2ec9",
+          "width": 352,
+          "x": 1420,
+          "y": 490,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI",
+          "name": "saveText",
+          "persistentUuid": "df668be4-fe15-423d-968c-553f99ce0067",
+          "width": 0,
+          "x": 1736,
+          "y": 1043,
+          "zOrder": 20,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "Apple_Value",
+          "persistentUuid": "707514b1-4494-439c-b279-f8f0d9f7407c",
+          "width": 0,
+          "x": 590,
+          "y": 523,
+          "zOrder": 58,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "aValueCost",
+          "persistentUuid": "b9abd98b-0814-4bd8-b2d5-d6134c1fb73e",
+          "width": 0,
+          "x": 603,
+          "y": 562,
+          "zOrder": 59,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "aValueLevel",
+          "persistentUuid": "795ba8cb-3e96-4784-bdec-3101d66d2348",
+          "width": 0,
+          "x": 603,
+          "y": 596,
+          "zOrder": 60,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "aScoreValue",
+          "persistentUuid": "57eb5d64-bac5-44c6-9a5a-e7398e18e09f",
+          "width": 0,
+          "x": 603,
+          "y": 630,
+          "zOrder": 61,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 32,
+          "height": 32,
+          "layer": "UI Shop",
+          "name": "aValue",
+          "persistentUuid": "3bfd5024-5572-4219-b2e4-eab0e9b3db75",
+          "width": 96,
+          "x": 800,
+          "y": 522,
+          "zOrder": 62,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "Apple_Spawn_Time",
+          "persistentUuid": "c86fa977-1510-4beb-8728-00ba43dc6070",
+          "width": 0,
+          "x": 153,
+          "y": 523,
+          "zOrder": 63,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "aSpawnTimeCost",
+          "persistentUuid": "3866175c-2763-4a86-9306-d3336dd565ea",
+          "width": 0,
+          "x": 170,
+          "y": 562,
+          "zOrder": 64,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "aSpawnTimeLevel",
+          "persistentUuid": "e055f665-fd2f-4a03-9aa2-e5979f2d9ccd",
+          "width": 0,
+          "x": 170,
+          "y": 596,
+          "zOrder": 65,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI Shop",
+          "name": "aSpawnTimer",
+          "persistentUuid": "a30d4020-63d0-4fd9-9e60-b5d842229673",
+          "width": 0,
+          "x": 170,
+          "y": 630,
+          "zOrder": 66,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 32,
+          "height": 32,
+          "layer": "UI Shop",
+          "name": "aSpawnTime",
+          "persistentUuid": "4ee64751-a18a-413e-8c86-a60268ea84e2",
+          "width": 96,
+          "x": 367,
+          "y": 522,
+          "zOrder": 67,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -3316,6 +3801,553 @@
             "characterSize": 20,
             "color": "255;255;255"
           }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "saveText",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Game Saved...",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 35,
+          "color": {
+            "b": 0,
+            "g": 255,
+            "r": 3
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Game Saved...",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 35,
+            "color": "3;255;0"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "aValueLevel",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Level: 0",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Level: 0",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "aScoreValue",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Apple Score: 10",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Apple Score: 10",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "aValueCost",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Cost: 550",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Cost: 550",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": true,
+          "italic": false,
+          "name": "Apple_Value",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Apple Score Modifier",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 25,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": true,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Apple Score Modifier",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 25,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "aValue",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [
+            {
+              "folded": true,
+              "name": "Level",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
+              "name": "Cost",
+              "type": "number",
+              "value": 550
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "content": {},
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": -3,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_hover.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Idle": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_idle.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Buy",
+              "font": "Oswald-VariableFont_wght.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "Buy",
+                "font": "Oswald-VariableFont_wght.ttf",
+                "textAlignment": "center",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_press.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            }
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": true,
+          "italic": false,
+          "name": "Apple_Spawn_Time",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Apple Spawn Time",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 25,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": true,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Apple Spawn Time",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 25,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "aSpawnTime",
+          "type": "PanelSpriteButton::PanelSpriteButton",
+          "variables": [
+            {
+              "folded": true,
+              "name": "Level",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
+              "name": "Cost",
+              "type": "number",
+              "value": 2250
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "content": {},
+          "childrenContent": {
+            "Hovered": {
+              "bottomMargin": -3,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_hover.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Idle": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_idle.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            },
+            "Label": {
+              "bold": false,
+              "italic": false,
+              "smoothed": true,
+              "underlined": false,
+              "string": "Buy",
+              "font": "Oswald-VariableFont_wght.ttf",
+              "textAlignment": "center",
+              "characterSize": 20,
+              "color": {
+                "b": 255,
+                "g": 255,
+                "r": 255
+              },
+              "content": {
+                "bold": false,
+                "isOutlineEnabled": false,
+                "isShadowEnabled": false,
+                "italic": false,
+                "outlineColor": "255;255;255",
+                "outlineThickness": 2,
+                "shadowAngle": 90,
+                "shadowBlurRadius": 2,
+                "shadowColor": "0;0;0",
+                "shadowDistance": 4,
+                "shadowOpacity": 127,
+                "smoothed": true,
+                "underlined": false,
+                "text": "Buy",
+                "font": "Oswald-VariableFont_wght.ttf",
+                "textAlignment": "center",
+                "characterSize": 20,
+                "color": "255;255;255"
+              }
+            },
+            "Pressed": {
+              "bottomMargin": 0,
+              "height": 32,
+              "leftMargin": 0,
+              "rightMargin": 0,
+              "texture": "button_press.png",
+              "tiled": false,
+              "topMargin": 0,
+              "width": 32
+            }
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "aSpawnTimer",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Spawn Time: None",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Spawn Time: None",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "aSpawnTimeCost",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Cost: 2250",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Cost: 2250",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "aSpawnTimeLevel",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Level: 0",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 20,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Level: 0",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 20,
+            "color": "255;255;255"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -3324,6 +4356,46 @@
           {
             "folderName": "Store",
             "children": [
+              {
+                "folderName": "aSpawnTime",
+                "children": [
+                  {
+                    "objectName": "aSpawnTimeLevel"
+                  },
+                  {
+                    "objectName": "aSpawnTimeCost"
+                  },
+                  {
+                    "objectName": "aSpawnTimer"
+                  },
+                  {
+                    "objectName": "aSpawnTime"
+                  },
+                  {
+                    "objectName": "Apple_Spawn_Time"
+                  }
+                ]
+              },
+              {
+                "folderName": "aValue",
+                "children": [
+                  {
+                    "objectName": "aValue"
+                  },
+                  {
+                    "objectName": "Apple_Value"
+                  },
+                  {
+                    "objectName": "aValueCost"
+                  },
+                  {
+                    "objectName": "aScoreValue"
+                  },
+                  {
+                    "objectName": "aValueLevel"
+                  }
+                ]
+              },
               {
                 "folderName": "bValue",
                 "children": [
@@ -3460,6 +4532,9 @@
           },
           {
             "objectName": "Border"
+          },
+          {
+            "objectName": "saveText"
           }
         ]
       },
@@ -3568,6 +4643,56 @@
               },
               "parameters": [
                 "Pause_Menu_Buttons"
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Cursor",
+                "CursorX()",
+                "CursorY()",
+                "\"Coursor\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ScalableCapability::ScalableBehavior::SetValue"
+              },
+              "parameters": [
+                "Cursor",
+                "Scale",
+                "=",
+                "0.08"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Cursor",
+                "=",
+                "999"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "saveText"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetTimer"
+              },
+              "parameters": [
+                "",
+                "\"autoSave\""
               ]
             }
           ],
@@ -3776,7 +4901,189 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Apple Upgrades"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "aSpawnTime",
+                        "Cost",
+                        "=",
+                        "2250"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "aValue",
+                        "Cost",
+                        "=",
+                        "550"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "aScore",
+                        "=",
+                        "10"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "aSpawnTime",
+                        "=",
+                        "60"
+                      ]
+                    }
+                  ]
                 }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Coursor"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Cursor",
+                "=",
+                "CursorX()",
+                "=",
+                "CursorY()"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Cursor Drag"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "DraggableBehavior::Dragged"
+              },
+              "parameters": [
+                "Fruits",
+                "Draggable"
+              ]
+            },
+            {
+              "type": {
+                "value": "MouseButtonPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "Cursor",
+                "Animation",
+                "=",
+                "\"Drag\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "DraggableBehavior::Dropped"
+                  },
+                  "parameters": [
+                    "Fruits",
+                    "Draggable"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MouseButtonReleased"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "Cursor",
+                "Animation",
+                "=",
+                "\"Idle\""
               ]
             }
           ]
@@ -4299,6 +5606,35 @@
                     "\"Level:\" + ToString(bSpawnTime.Variable(Level))"
                   ]
                 }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "bSpawnTime",
+                        "Level",
+                        ">=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ResetTimer"
+                      },
+                      "parameters": [
+                        "Orange",
+                        "\"bSpawnTimer\""
+                      ]
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -4345,7 +5681,7 @@
                     "bTimeSpawnCost",
                     "Text",
                     "=",
-                    "\"Level:\" + ToString(bSpawnTime.Variable(Cost))"
+                    "\"Cost:\" + ToString(bSpawnTime.Variable(Cost))"
                   ]
                 }
               ]
@@ -4394,7 +5730,7 @@
                     "bValueCost",
                     "Text",
                     "=",
-                    "\"Spawn Time: \" + ToString(bValue.Cost)"
+                    "\"Cost: \" + ToString(bValue.Cost)"
                   ]
                 }
               ]
@@ -4443,7 +5779,7 @@
                     "bValueLevel",
                     "Text",
                     "=",
-                    "\"Spawn Time: \" + ToString(bValue.Level)"
+                    "\"Level: \" + ToString(bValue.Level)"
                   ]
                 }
               ]
@@ -4492,6 +5828,339 @@
                     "Text",
                     "=",
                     "\"Banana Score: \" + ToString(bScore)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Load Apples"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleSpawnTime\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleSpawnTime\"",
+                    "GlobalVariable(aSpawnTime)",
+                    "loadApSpawnTime"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "=",
+                    "Variable(loadApSpawnTime)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimer",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(GlobalVariable(aSpawnTime))"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleSpawnTimeLevel\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleSpawnTimeLevel\"",
+                    "aValue.Variable(Level)",
+                    "loadApSpawnTimeLevel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Level",
+                    "=",
+                    "Variable(loadApSpawnTimeLevel)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(aSpawnTime.Variable(Level))"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "aSpawnTime",
+                        "Level",
+                        ">=",
+                        "1"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ResetTimer"
+                      },
+                      "parameters": [
+                        "Orange",
+                        "\"aSpawnTimer\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleSpawnTimeCost\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleSpawnTimeCost\"",
+                    "aValue.Variable(Cost)",
+                    "loadApSpawnTimeCost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Cost",
+                    "=",
+                    "Variable(loadApSpawnTimeCost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeCost",
+                    "Text",
+                    "=",
+                    "\"Cost:\" + ToString(aSpawnTime.Variable(Cost))"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleValueCost\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleValueCost\"",
+                    "aValue.Variable(Cost)",
+                    "loadApValueCost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aValue",
+                    "Cost",
+                    "=",
+                    "Variable(loadApValueCost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aValueCost",
+                    "Text",
+                    "=",
+                    "\"Cost: \" + ToString(aValue.Cost)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleValueLevel\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleValueLevel\"",
+                    "aValue.Variable(Cost)",
+                    "loadApValueLevel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aValue",
+                    "Level",
+                    "=",
+                    "Variable(loadApValueLevel)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aValueLevel",
+                    "Text",
+                    "=",
+                    "\"Level: \" + ToString(aValue.Level)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleValue\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierExp"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"AppleValue\"",
+                    "aValue.Variable(Cost)",
+                    "loadApValue"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "aScore",
+                    "=",
+                    "Variable(loadApValue)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aScoreValue",
+                    "Text",
+                    "=",
+                    "\"Banana Score: \" + ToString(aScore)"
                   ]
                 }
               ]
@@ -4618,6 +6287,68 @@
               "parameters": [
                 "Orange",
                 "\"bSpawnTimer\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Apple Spawner\n"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CompareTimer"
+              },
+              "parameters": [
+                "",
+                "\"aSpawnTimer\"",
+                ">=",
+                "GlobalVariable(aSpawnTime)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Apple",
+                "RandomInRange(100,1500)",
+                "RandomInRange(100,800)",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ScalableCapability::ScalableBehavior::SetValue"
+              },
+              "parameters": [
+                "Apple",
+                "Scale",
+                "=",
+                "0.06"
+              ]
+            },
+            {
+              "type": {
+                "value": "ResetTimer"
+              },
+              "parameters": [
+                "",
+                "\"aSpawnTimer\""
               ]
             }
           ]
@@ -6915,6 +8646,580 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Apple Spawn Time"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    ">=",
+                    "aSpawnTime.Cost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Level",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "-",
+                    "aSpawnTime.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "=",
+                    "floorTo(GlobalVariable(Score),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Score",
+                    "Text",
+                    "=",
+                    "\"SCORE: \" + ToString(GlobalVariable(Score))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Level",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(aSpawnTime.Variable(Level))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Cost",
+                    "*",
+                    "1.35"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Cost",
+                    "=",
+                    "floorTo(aSpawnTime.Cost,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeCost",
+                    "Text",
+                    "=",
+                    "\"Cost: \" + ToString(aSpawnTime.Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimer",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(GlobalVariable(aSpawnTime))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetTimer"
+                  },
+                  "parameters": [
+                    "",
+                    "\"aSpawnTimer\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    ">=",
+                    "aSpawnTime.Cost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Level",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "-",
+                    "aSpawnTime.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "=",
+                    "floorTo(GlobalVariable(Score),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Score",
+                    "Text",
+                    "=",
+                    "\"SCORE: \" + ToString(GlobalVariable(Score))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Level",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(aSpawnTime.Variable(Level))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Cost",
+                    "+",
+                    "500"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Cost",
+                    "=",
+                    "floorTo(aSpawnTime.Cost,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeCost",
+                    "Text",
+                    "=",
+                    "\"Cost: \" + ToString(aSpawnTime.Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "-",
+                    "0.25"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "=",
+                    "floorTo(GlobalVariable(aSpawnTime),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimer",
+                    "Text",
+                    "=",
+                    "\"Spawn Time: \" + ToString(GlobalVariable(aSpawnTime))"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Apple Value"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PanelSpriteButton::PanelSpriteButton::IsClicked"
+                  },
+                  "parameters": [
+                    "aValue",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    ">=",
+                    "aValue.Variable(Cost)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "-",
+                    "aValue.Variable(Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "Score",
+                    "=",
+                    "floorTo(GlobalVariable(Score),2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "Score",
+                    "Text",
+                    "=",
+                    "\"SCORE: \" + ToString(GlobalVariable(Score))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aValue",
+                    "Level",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aValueLevel",
+                    "Text",
+                    "=",
+                    "\"Level:\" + ToString(aValue.Variable(Level))"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aValue",
+                    "Cost",
+                    "*",
+                    "1.06"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "aValue",
+                    "Cost",
+                    "=",
+                    "floorTo(aValue.Cost,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aValueCost",
+                    "Text",
+                    "=",
+                    "\"Cost: \" + ToString(aValue.Cost)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "aScore",
+                    "*",
+                    "1.04"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "aScore",
+                    "=",
+                    "floorTo(aScore,2)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aScoreValue",
+                    "Text",
+                    "=",
+                    "\"Banana Score: \" + ToString(aScore)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Apple Max Level"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "Level",
+                    "=",
+                    "200"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "aSpawnTime",
+                    "oSpwanTimeBuy"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeCost",
+                    "Text",
+                    "=",
+                    "\"Cost: NONE\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aSpawnTimeLevel",
+                    "Text",
+                    "=",
+                    "\"Level: MAX\""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "aValue",
+                    "Level",
+                    "=",
+                    "100"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "aValue",
+                    "oSpwanTimeBuy"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aValueLevel",
+                    "Text",
+                    "=",
+                    "\"Level: MAX\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+                  },
+                  "parameters": [
+                    "aValueCost",
+                    "Text",
+                    "=",
+                    "\"Cost: NONE\""
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -7298,17 +9603,63 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "ButtonStates::ButtonFSM::IsClicked"
+                    "value": "BuiltinCommonInstructions::Or"
                   },
-                  "parameters": [
-                    "saveButton",
-                    "ButtonFSM",
-                    ""
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "ButtonStates::ButtonFSM::IsClicked"
+                      },
+                      "parameters": [
+                        "saveButton",
+                        "ButtonFSM",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "CompareTimer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"autoSave\"",
+                        ">=",
+                        "600"
+                      ]
+                    }
                   ]
                 }
               ],
               "actions": [],
               "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Timer Reset"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ResetTimer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"autoSave\""
+                      ]
+                    }
+                  ]
+                },
                 {
                   "type": "BuiltinCommonInstructions::Comment",
                   "color": {
@@ -7333,6 +9684,67 @@
                         "\"SaveFile\"",
                         "\"Score\"",
                         "GlobalVariable(Score)"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "High Score save"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarGlobal"
+                      },
+                      "parameters": [
+                        "highScore",
+                        "<=",
+                        "GlobalVariable(Score)"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarGlobal"
+                      },
+                      "parameters": [
+                        "highScore",
+                        "=",
+                        "GlobalVariable(Score)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"highScore\"",
+                        "GlobalVariable(highScore)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "await": true,
+                        "value": "Leaderboards::SavePlayerScore"
+                      },
+                      "parameters": [
+                        "",
+                        "\"875ae711-0481-4055-95da-582e3b6b5c73\"",
+                        "GlobalVariable(highScore)",
+                        "GlobalVariableString(playerName)"
                       ]
                     }
                   ]
@@ -7528,6 +9940,145 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Apple Value"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"AppleValue\"",
+                        "GlobalVariable(aScore)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"AppleValueLevel\"",
+                        "aValue.Variable(Level)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"AppleValueCost\"",
+                        "aValue.Variable(Cost)"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Apple Spawner Time"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"AppleSpawnTime\"",
+                        "GlobalVariable(aSpawnTime)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"AppleSpawnTimeLevel\"",
+                        "aSpawnTime.Variable(Level)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"SaveFile\"",
+                        "\"AppleSpawnTimeCost\"",
+                        "aSpawnTime.Variable(Cost)"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Save Indicator"
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Montre"
+                      },
+                      "parameters": [
+                        "saveText",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Wait"
+                      },
+                      "parameters": [
+                        "1.5"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Cache"
+                      },
+                      "parameters": [
+                        "saveText"
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -7686,6 +10237,23 @@
           "visibility": true,
           "cameras": [],
           "effects": []
+        },
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "Coursor",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [],
+          "effects": []
         }
       ],
       "behaviorsSharedData": [
@@ -7747,7 +10315,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5427920802473275,
+        "zoomFactor": 0.5079575118131733,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -7831,7 +10399,7 @@
           "persistentUuid": "ffe65628-9f89-4104-bce5-0323776a7039",
           "width": 0,
           "x": 761,
-          "y": 166,
+          "y": 151,
           "zOrder": 5,
           "numberProperties": [],
           "stringProperties": [],
@@ -7846,7 +10414,7 @@
           "persistentUuid": "e4fcf518-5c00-414c-ada9-5c9cd87d6eb1",
           "width": 0,
           "x": 760,
-          "y": 799,
+          "y": 784,
           "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
@@ -7861,7 +10429,7 @@
           "persistentUuid": "86f25440-9cd4-4c90-9164-cc69edd02928",
           "width": 0,
           "x": 657,
-          "y": 569,
+          "y": 554,
           "zOrder": 7,
           "numberProperties": [],
           "stringProperties": [],
@@ -7891,8 +10459,39 @@
           "persistentUuid": "be077492-918a-47ca-b2c4-9d3554b7bfd8",
           "width": 0,
           "x": 753,
-          "y": 357,
+          "y": 342,
           "zOrder": 9,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Version",
+          "persistentUuid": "ca235785-2f2b-4cde-959d-c6d815faa5ce",
+          "width": 0,
+          "x": 17,
+          "y": 1005,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 106,
+          "layer": "",
+          "name": "leaderButton",
+          "persistentUuid": "6525b191-fdd4-418d-80ec-8d6830ae93d4",
+          "width": 106,
+          "x": 1782,
+          "y": 22,
+          "zOrder": 11,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -8346,6 +10945,174 @@
             "characterSize": 150,
             "color": "0;0;0"
           }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "Version",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Version 0.5.5",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 50,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": true,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 5,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Version 0.5.5",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 50,
+            "color": "0;0;0"
+          }
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "leaderButton",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "ButtonAnimationName",
+              "type": "ButtonStates::ButtonAnimationName",
+              "ButtonFSM": "ButtonFSM",
+              "IdleAnimationName": "Idle",
+              "FocusedAnimationName": "Focused",
+              "PressedAnimationName": "Pressed"
+            },
+            {
+              "name": "ButtonFSM",
+              "type": "ButtonStates::ButtonFSM",
+              "ShouldCheckHovering": true,
+              "State": "Idle",
+              "TouchId": 0,
+              "TouchIsInside": false,
+              "MouseIsInside": false,
+              "Index": 2.0247e-320
+            }
+          ],
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "leader.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 11,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 1070
+                          },
+                          {
+                            "x": 11,
+                            "y": 1070
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Focused",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "leader_hover.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 11,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 1070
+                          },
+                          {
+                            "x": 11,
+                            "y": 1070
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "objectsFolderStructure": {
@@ -8374,6 +11141,12 @@
           },
           {
             "objectName": "Name"
+          },
+          {
+            "objectName": "Version"
+          },
+          {
+            "objectName": "leaderButton"
           }
         ]
       },
@@ -8439,6 +11212,77 @@
                 "Load_Button",
                 "=",
                 "(SceneWindowWidth()/2) - (Load_Button.Width()/2)"
+              ]
+            },
+            {
+              "type": {
+                "value": "CacheSouris"
+              },
+              "parameters": [
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Cursor",
+                "CursorX()",
+                "CursorY()",
+                "\"Coursor\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ScalableCapability::ScalableBehavior::SetValue"
+              },
+              "parameters": [
+                "Cursor",
+                "Scale",
+                "=",
+                "0.08"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Cursor",
+                "=",
+                "999"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Cursor Move"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Cursor",
+                "=",
+                "CursorX()",
+                "=",
+                "CursorY()"
               ]
             }
           ]
@@ -8960,6 +11804,33 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ButtonStates::ButtonFSM::IsClicked"
+              },
+              "parameters": [
+                "leaderButton",
+                "ButtonFSM",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Leaderboards::DisplayLeaderboard"
+              },
+              "parameters": [
+                "",
+                "\"875ae711-0481-4055-95da-582e3b6b5c73\"",
+                "yes"
+              ]
+            }
+          ]
         }
       ],
       "layers": [
@@ -9013,6 +11884,10 @@
         {
           "name": "Animation",
           "type": "AnimatableCapability::AnimatableBehavior"
+        },
+        {
+          "name": "ButtonAnimationName",
+          "type": "ButtonStates::ButtonAnimationName"
         },
         {
           "name": "ButtonFSM",
@@ -9219,6 +12094,68 @@
           "x": 625,
           "y": 355,
           "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "changeUsername",
+          "persistentUuid": "9a04fa1f-ad8b-4ac7-bc5b-eb34b9deeec0",
+          "width": 0,
+          "x": 193,
+          "y": 236,
+          "zOrder": 11,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 2,
+          "height": 52,
+          "layer": "",
+          "name": "userNameInput",
+          "persistentUuid": "ebfa1b31-a55c-45bc-b705-f5286cb3d06f",
+          "width": 569,
+          "x": 720,
+          "y": 261,
+          "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 1,
+          "height": 107,
+          "layer": "",
+          "name": "checkButton",
+          "persistentUuid": "76715810-9c09-403b-a01b-c36f8c7a381f",
+          "width": 107,
+          "x": 1323,
+          "y": 232,
+          "zOrder": 13,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "username",
+          "persistentUuid": "d64b561f-95ec-457d-a023-399608007692",
+          "width": 0,
+          "x": 715,
+          "y": 259,
+          "zOrder": 14,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -9826,6 +12763,238 @@
             "characterSize": 75,
             "color": "255;0;0"
           }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "changeUsername",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Player Username:",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 75,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": true,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 5,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Player Username:",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 75,
+            "color": "0;0;0"
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "userNameInput",
+          "type": "TextInput::TextInputObject",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "initialValue": "",
+            "placeholder": "Click to start typing",
+            "fontResourceName": "",
+            "fontSize": 25,
+            "inputType": "text",
+            "textColor": "0;0;0",
+            "fillColor": "255;255;255",
+            "fillOpacity": 255,
+            "borderColor": "0;0;0",
+            "borderOpacity": 255,
+            "borderWidth": 1,
+            "readOnly": false,
+            "disabled": false
+          }
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "checkButton",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "ButtonAnimationName",
+              "type": "ButtonStates::ButtonAnimationName",
+              "ButtonFSM": "ButtonFSM",
+              "IdleAnimationName": "Idle",
+              "FocusedAnimationName": "Hover",
+              "PressedAnimationName": "Pressed"
+            },
+            {
+              "name": "ButtonFSM",
+              "type": "ButtonStates::ButtonFSM",
+              "ShouldCheckHovering": true,
+              "State": "Idle",
+              "TouchId": 0,
+              "TouchIsInside": false,
+              "MouseIsInside": false,
+              "Index": 2.0247e-320
+            }
+          ],
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "done.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 11,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 1070
+                          },
+                          {
+                            "x": 11,
+                            "y": 1070
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Hover",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "done_hover.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 11,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 11
+                          },
+                          {
+                            "x": 1070,
+                            "y": 1070
+                          },
+                          {
+                            "x": 11,
+                            "y": 1070
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "username",
+          "smoothed": true,
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Text",
+          "font": "Oswald-VariableFont_wght.ttf",
+          "textAlignment": "left",
+          "characterSize": 50,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          },
+          "content": {
+            "bold": false,
+            "isOutlineEnabled": false,
+            "isShadowEnabled": false,
+            "italic": false,
+            "outlineColor": "255;255;255",
+            "outlineThickness": 2,
+            "shadowAngle": 90,
+            "shadowBlurRadius": 2,
+            "shadowColor": "0;0;0",
+            "shadowDistance": 4,
+            "shadowOpacity": 127,
+            "smoothed": true,
+            "underlined": false,
+            "text": "Text",
+            "font": "Oswald-VariableFont_wght.ttf",
+            "textAlignment": "left",
+            "characterSize": 50,
+            "color": "0;0;0"
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -9835,10 +13004,19 @@
             "objectName": "Back_Button"
           },
           {
+            "objectName": "checkButton"
+          },
+          {
+            "objectName": "username"
+          },
+          {
             "objectName": "EfSlider"
           },
           {
             "objectName": "Reset_Settings"
+          },
+          {
+            "objectName": "changeUsername"
           },
           {
             "objectName": "Reset_Save"
@@ -9860,6 +13038,9 @@
           },
           {
             "objectName": "musicVolSlider2"
+          },
+          {
+            "objectName": "userNameInput"
           }
         ]
       },
@@ -9897,6 +13078,141 @@
                 "=",
                 "GlobalVariable(volumeMusic)",
                 ""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "Cursor",
+                "CursorX()",
+                "CursorY()",
+                "\"Coursor\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ScalableCapability::ScalableBehavior::SetValue"
+              },
+              "parameters": [
+                "Cursor",
+                "Scale",
+                "=",
+                "0.08"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Cursor",
+                "=",
+                "999"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "username"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Cursor Move"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "MettreXY"
+              },
+              "parameters": [
+                "Cursor",
+                "=",
+                "CursorX()",
+                "=",
+                "CursorY()"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "TextInput::TextInputObject::Focused"
+              },
+              "parameters": [
+                "userNameInput"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "Cursor"
+              ]
+            },
+            {
+              "type": {
+                "value": "MontreSouris"
+              },
+              "parameters": [
+                "Cursor"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "TextInput::TextInputObject::Focused"
+              },
+              "parameters": [
+                "userNameInput"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "Cursor",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "CacheSouris"
+              },
+              "parameters": [
+                "Cursor"
               ]
             }
           ]
@@ -10290,6 +13606,167 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Save username"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "ButtonStates::ButtonFSM::IsClicked"
+              },
+              "parameters": [
+                "checkButton",
+                "ButtonFSM",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "PlaySound"
+              },
+              "parameters": [
+                "",
+                "click.ogg",
+                "",
+                "GlobalVariable(volumeEffects)",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarGlobalTxt"
+              },
+              "parameters": [
+                "playerName",
+                "=",
+                "Leaderboards::FormatPlayerName(userNameInput.Text())"
+              ]
+            },
+            {
+              "type": {
+                "value": "EcrireFichierTxt"
+              },
+              "parameters": [
+                "\"Settings\"",
+                "\"Username\"",
+                "GlobalVariableString(playerName)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "checkButton"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "userNameInput"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "username",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "username",
+                "Text",
+                "=",
+                "GlobalVariableString(playerName)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Load / Chech Username"
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "GroupExists"
+              },
+              "parameters": [
+                "\"Settings\"",
+                "\"Username\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "checkButton"
+              ]
+            },
+            {
+              "type": {
+                "value": "Cache"
+              },
+              "parameters": [
+                "userNameInput"
+              ]
+            },
+            {
+              "type": {
+                "value": "Montre"
+              },
+              "parameters": [
+                "username",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
+              },
+              "parameters": [
+                "username",
+                "Text",
+                "=",
+                "GlobalVariableString(playerName)"
+              ]
+            }
+          ]
         }
       ],
       "layers": [
@@ -10398,7 +13875,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.2796226521839374,
+        "zoomFactor": 0.2890516203134916,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -10412,6 +13889,18 @@
         {
           "folded": true,
           "name": "settMusVolume",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "loadUsername",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "folded": true,
+          "name": "loadHighScore",
           "type": "number",
           "value": 0
         }
@@ -10722,6 +14211,131 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Load Username"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"Settings\"",
+                    "\"Username\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierTxt"
+                  },
+                  "parameters": [
+                    "\"Settings\"",
+                    "\"Username\"",
+                    "",
+                    "loadUsername"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobalTxt"
+                  },
+                  "parameters": [
+                    "playerName",
+                    "=",
+                    "VariableString(loadUsername)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Load High Score"
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"highScore\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LireFichierTxt"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"highScore\"",
+                    "",
+                    "loadHighScore"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "highScore",
+                    "=",
+                    "Variable(loadHighScore)"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "GroupExists"
+                  },
+                  "parameters": [
+                    "\"SaveFile\"",
+                    "\"highScore\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarGlobal"
+                  },
+                  "parameters": [
+                    "highScore",
+                    "=",
+                    "0"
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -10758,8 +14372,16 @@
       ],
       "behaviorsSharedData": [
         {
+          "name": "Animation",
+          "type": "AnimatableCapability::AnimatableBehavior"
+        },
+        {
           "name": "Effect",
           "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
         },
         {
           "name": "Opacity",
