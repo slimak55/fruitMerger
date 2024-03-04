@@ -27,7 +27,7 @@ Also, all of the assets are hand made, or the license is in the repo. **You can 
 
 ## Changelog v0.5.5
 
-- Added two banana upgrades
+- Added two banana, and apple upgrades
 - Changed Fruit hitboxes to better match the fruit
 - Added custom cursor
 - Added auto saves
