@@ -19,7 +19,7 @@
     "sizeOnStartupMode": "adaptWidth",
     "templateSlug": "",
     "useExternalSourceFiles": false,
-    "version": "0.5.0",
+    "version": "0.5.5",
     "name": "Fruit Merger",
     "description": "Merge Score -> Gain Score -> Upgrade",
     "author": "Michal Cloud",
